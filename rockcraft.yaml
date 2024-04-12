@@ -1,0 +1,38 @@
+name: ros2bag-fileserver
+summary: The ROS 2 bag fileserver
+description: |
+        The ROS 2 bag fileserver to host
+        mcap files
+version: '0.1'
+license: GPL-3.0
+
+base: ubuntu@22.04
+build-base: ubuntu@22.04
+platforms:
+  amd64:
+
+package-repositories:
+- components: [main]
+  formats: [deb]
+  key-id: 65760C51EDEA2017CEA2CA15155B6D79CA56EA34
+  key-server: keyserver.ubuntu.com
+  suites: [any-version]
+  type: apt
+  url: https://dl.cloudsmith.io/public/caddy/stable/deb/debian
+
+services:
+  ros2bag-fileserver:
+    override: replace
+    startup: enabled
+    command: /usr/bin/caddy run --config /srv/Caddyfile
+
+# Parts section
+parts:
+  caddy:
+    plugin: dump
+    source: rock/local
+    stage-packages: [rsync, caddy]
+    overlay-packages: [openssh-server]
+    organize:
+      'Caddyfile' : srv/
+
