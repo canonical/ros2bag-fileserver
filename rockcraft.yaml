@@ -31,7 +31,8 @@ parts:
   caddy:
     plugin: dump
     source: rock/local
-    stage-packages: [rsync, openssh-server, caddy]
+    stage-packages: [rsync, caddy]
+    overlay-packages: [openssh-server]
     organize:
       'Caddyfile' : srv/
 
