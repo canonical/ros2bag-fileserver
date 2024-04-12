@@ -1,0 +1,16 @@
+:80 {
+  # Set this path to your site's directory.
+  root * /var/lib/caddy-fileserver
+
+  # Enable the static file server.
+  file_server browse
+  header {
+      Access-Control-Allow-Origin *
+      Access-Control-Allow-Methods GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers *
+  }
+
+  log {
+      output file /var/log/access.log
+  }
+}
