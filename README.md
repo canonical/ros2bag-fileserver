@@ -1,4 +1,4 @@
-#ROS 2 bag file server
+# ROS 2 bag file server
 
 This repository is hosting the rock to build the ROS 2 bag file server.
 This rock is meant to be working with the [ros2bag-fileserver-k8s-operator](https://github.com/ubuntu-robotics/ros2bag-fileserver-k8s-operator).
