@@ -12,6 +12,10 @@ on:
       - main
       - track/*
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   main:
     runs-on: ubuntu-latest
